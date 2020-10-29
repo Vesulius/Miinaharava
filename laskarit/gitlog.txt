@@ -1,0 +1,113 @@
+commit 67d5d25a9b661f544a26ebe7b26b3ffe154891f5
+Author: Vesa <vesainwonderland@gmail.com>
+Date:   Thu Oct 29 19:21:37 2020 +0200
+
+    poistettu file1 uudellennimetty file22
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 879807351a884ebfe47903fdbee3a6c11fd9aeb4
+Author: Vesa <vesainwonderland@gmail.com>
+Date:   Thu Oct 29 19:05:13 2020 +0200
+
+    lisätty kansio tiedostoja
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 6803eb558b027532c06813d18b2602b96cc7dbbf
+Author: Vesa <vesainwonderland@gmail.com>
+Date:   Wed Oct 28 20:24:16 2020 +0200
+
+    muutoksia eka.txt ja kolmas.txt
+
+ eka.txt    | 4 ++--
+ kolmas.txt | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+commit 4ede08452549bc4a77e36a3fe163c97fe9c98054
+Author: Vesa <vesainwonderland@gmail.com>
+Date:   Wed Oct 28 20:19:39 2020 +0200
+
+    nimettiin eka.txt
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 3e20cb223580af638cb9ba11303fa4f3b8db184b
+Author: Vesa <vesainwonderland@gmail.com>
+Date:   Wed Oct 28 20:17:39 2020 +0200
+
+    poistettu toinen.txt
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit add1843f3f0ddb70fdb2cc152b59975b4e2e17f5
+Author: Vesa <vesainwonderland@gmail.com>
+Date:   Wed Oct 28 20:10:25 2020 +0200
+
+    muokattu lisää tiedosto.txt
+
+ tiedosto.txt | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+commit 17ffa054fb3c9c730cf7e435464790751d11fc39
+Author: Vesa <vesainwonderland@gmail.com>
+Date:   Wed Oct 28 20:07:50 2020 +0200
+
+    muokattu tiedosto.txt
+
+ tiedosto.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit 1eee2b75ea1d59f416eee798f7b1e3f15aed474f
+Author: Vesa <vesainwonderland@gmail.com>
+Date:   Wed Oct 28 19:36:38 2020 +0200
+
+    lisätty stuff
+
+ stuff/theDeathOfSocrates.jpg | Bin 0 -> 203724 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit db43439bf47f69be01281ed6f56f7806983e4e3e
+Author: Vesa <vesainwonderland@gmail.com>
+Date:   Wed Oct 28 19:31:56 2020 +0200
+
+    muutoksia toinen ja kolmas
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 0603a29acbee5bc8627bfc062fe21b368f889b87
+Author: Vesa <vesainwonderland@gmail.com>
+Date:   Wed Oct 28 19:26:37 2020 +0200
+
+    lisätään kolmas
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit faedde8c4df8e3ee647ff1314b8dcf9075a42bef
+Author: Vesa <vesainwonderland@gmail.com>
+Date:   Wed Oct 28 19:24:23 2020 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit b1b77bb057bd5fbff415f21a07d8ec48a0d39c04
+Author: Vesa <vesainwonderland@gmail.com>
+Date:   Wed Oct 28 18:23:16 2020 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
