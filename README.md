@@ -1,12 +1,25 @@
-## Ohjelmistotekniikka (_TKT20002_) syksy 2020
+## Miinaharava
 
-Tämä on *Helsingin yliopiston* kurssin *ohjelmistotekniikka* harjoitustyö.
+Tämä sovellus on klassinen miinaharava peli.
 
-### Laskarit
+Tämä on *Helsingin yliopiston* kurssin *ohjelmistotekniikka (_TKT20002_)* harjoitustyö.
 
-#### Viikko 1
-* [komentorivi.txt](https://github.com/Vesulius/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
-* [gitlog.txt](https://github.com/Vesulius/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
 
-#### Viikko 2
-* [vaatimusmäärittely](https://github.com/Vesulius/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
+#### Dokumentaatio
+[vaatimusmäärittely](https://github.com/Vesulius/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
+
+[Tuntikirjanpito](https://github.com/Vesulius/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
+
+
+#### Komentorivikomennot
+Testit suoritetaan komennolla
+
+```
+mvn test
+```
+
+Testikattavuusraportti luodaan komennolla
+
+```
+mvn jacoco:report
+``` 
