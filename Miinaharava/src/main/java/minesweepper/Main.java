@@ -1,3 +1,6 @@
+package minesweepper;
+
+import ui.Graphix;
 
 public class Main {
 
