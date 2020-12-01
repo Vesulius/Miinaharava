@@ -1,5 +1,4 @@
 package ui;
-import minesweepper.BoardGenerator;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -13,8 +12,8 @@ public class TileTest {
     
     @Before
     public void setup() {
-        System.out.println("toimi");
         this.gameBoard = new GameBoard(10, 10, 10, new Graphix());
+        this.gameBoard.boardSceneCreator();
         this.tile = new Tile(1, this.gameBoard);
     }
 

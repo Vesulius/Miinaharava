@@ -5,14 +5,14 @@ import javafx.stage.Stage;
 
 public class Graphix extends Application {
 
-    private final Stage stage;
+    private Stage stage;
 
     public Graphix() {
-        this.stage = new Stage();
     }
 
     @Override
     public void start(Stage stage) {
+        this.stage = stage;
         this.newGame();
         this.stage.show();
     }
