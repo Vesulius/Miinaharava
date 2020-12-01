@@ -5,60 +5,84 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import java.util.ArrayList;
+import javafx.scene.input.MouseButton;
 
 public class Tile extends StackPane {
 
+    // mines = number of surrounding mines. -1 = mine 
     public int mines;
     public int x;
     public int y;
+    public ArrayList<Tile> neibourghs = new ArrayList<Tile>();
 
-    public Graphix graphix;
+    public GameBoard board;
     public Rectangle rectangle = new Rectangle(50, 50);
     public Text text = new Text();
 
-    public Tile(int y, int x, int mines, Graphix graphix) {
-        this.y = y;
-        this.x = x;
+    public Tile(int mines, GameBoard board) {
         this.mines = mines;
-        this.graphix = graphix;
+        this.board = board;
 
-        if (mines == -1) {
-            text.setText("M");
-        } else {
-            text.setText(String.valueOf(mines));
-        }
-
+        this.setText();
         this.text.setVisible(false);
         this.text.setFont(Font.font(22));
-
-        if (this.mines == -1) {
-            this.text.setFill(Color.CORAL);
-        } else {
-            this.text.setFill(Color.WHITE);
-        }
 
         this.rectangle.setFill(Color.GRAY);
         this.rectangle.setStroke(Color.WHITE);
 
-        setTranslateY(y * 50);
-        setTranslateX(x * 50);
+        this.getChildren().addAll(this.rectangle, this.text);
 
-        getChildren().addAll(this.rectangle, this.text);
-
-        setOnMouseClicked(e -> reveal());
+        this.setOnMouseClicked(e -> {
+            if (e.getButton() == MouseButton.SECONDARY) {
+                mark();
+            } else {
+                if (!this.text.getText().equals("F")) {
+                    reveal();
+                }
+            }
+        });
     }
 
     public void reveal() {
-        if (this.text.isVisible()) {
+        if (this.text.getText().equals("F")) {
+            this.setText();
+        } else if (this.text.isVisible()) {
             return;
         }
         text.setVisible(true);
-
+        this.board.checkVictory(false);
+        
         if (this.mines == -1) {
-            System.out.println("Game over!");
+            System.out.println("GAME OVER!");
+            this.board.checkVictory(true);
         } else if (this.mines == 0) {
-            this.rectangle.setFill(Color.WHITE);
-            Graphix.revealSurrounding(this.y, this.x, this.graphix.board.tiles);
+            this.text.setFill(Color.LIGHTGREY);
+            this.rectangle.setFill(Color.LIGHTGREY);
+            this.neibourghs.forEach(Tile -> Tile.reveal());
+        }
+    }
+    
+    public void mark() {
+        if (this.text.getText().equals("F")) {
+            this.text.setVisible(false);
+            this.setText();
+        } else if (this.text.isVisible()) {
+            return;
+        } else {
+            this.text.setText("F");
+            this.text.setFill(Color.BLACK);
+            this.text.setVisible(true);
+        }
+    }
+    
+    private void setText() {
+        if (mines == -1) {
+            this.text.setText("M");
+            this.text.setFill(Color.RED);
+        } else {
+            this.text.setText(String.valueOf(mines));
+            this.text.setFill(Color.WHITE);
         }
     }
 }

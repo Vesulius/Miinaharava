@@ -5,7 +5,7 @@ import java.util.Random;
 public class BoardGenerator {
 
     public BoardGenerator() {
-
+        
     }
 
     public int[][] generateBoard(int y, int x, int mines) {
@@ -37,8 +37,8 @@ public class BoardGenerator {
         Random random = new Random();
 
         for (int i = 0; i < amount; i++) {
-            int y = 1 + random.nextInt(board.length - 1);
-            int x = 1 + random.nextInt(board[0].length - 1);
+            int y = 1 + random.nextInt(board.length - 2);
+            int x = 1 + random.nextInt(board[0].length - 2);
             if (board[y][x] == -1) {
                 i--;
             } else {
