@@ -5,3 +5,7 @@
 /laskarit/viikko2/Unicafe/nbproject/
 /Miinaharava/nbproject/
 /Miinaharava/target/
+.settings
+.project
+.classpath
+.vscode
