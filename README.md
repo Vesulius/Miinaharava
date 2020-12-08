@@ -12,7 +12,7 @@ Tämä on *Helsingin yliopiston* kurssin *ohjelmistotekniikka (_TKT20002_)* harj
 
 [arkkitehtuuri](https://github.com/Vesulius/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
-[Käyttöohje](https://github.com/Vesulius/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohjet.md)
+[Käyttöohje](https://github.com/Vesulius/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
 
 #### Komentorivikomennot
 Testit suoritetaan komennolla
