@@ -1,20 +1,20 @@
-package ui;
+package minesweepper.ui;
 
 
 import javafx.scene.Scene;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import minesweepper.logic.Graphix;
 
 public class GameBoardTest {
     
-    public GameBoard board;
+    public BoardScreen board;
     public Scene scene;
     
     @Before
     public void setup() {
-        this.board = new GameBoard(10, 10, 10, new Graphix());
-        this.board.boardSceneCreator();
+        this.board = new BoardScreen(10, 10, 10, new Graphix());
     }
     
     @Test

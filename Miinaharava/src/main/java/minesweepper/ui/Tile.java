@@ -1,4 +1,4 @@
-package ui;
+package minesweepper.ui;
 
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -16,11 +16,11 @@ public class Tile extends StackPane {
     public int y;
     public ArrayList<Tile> neibourghs = new ArrayList<Tile>();
 
-    public GameBoard board;
+    public BoardScreen board;
     public Rectangle rectangle = new Rectangle(50, 50);
     public Text text = new Text();
 
-    public Tile(int mines, GameBoard board) {
+    public Tile(int mines, BoardScreen board) {
         this.mines = mines;
         this.board = board;
 
@@ -32,7 +32,10 @@ public class Tile extends StackPane {
         this.rectangle.setStroke(Color.WHITE);
 
         this.getChildren().addAll(this.rectangle, this.text);
-
+        
+    // If revealed tiles mines == 0, then all the adjacent tiles will be revealed. This prosess is recursive.
+    // If the tiles text == F, that means the tile has been marked and won't be revealed by clicking it. 
+    // It will be revealed by the recursive prosess explaned above
         this.setOnMouseClicked(e -> {
             if (e.getButton() == MouseButton.SECONDARY) {
                 mark();
@@ -43,6 +46,7 @@ public class Tile extends StackPane {
             }
         });
     }
+    
 
     public void reveal() {
         if (this.text.getText().equals("F")) {

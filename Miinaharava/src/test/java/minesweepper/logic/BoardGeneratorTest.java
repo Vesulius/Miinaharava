@@ -1,4 +1,4 @@
-package minesweepper;
+package minesweepper.logic;
 
 import org.junit.Before;
 import org.junit.Test;

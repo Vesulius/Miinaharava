@@ -1,32 +1,69 @@
-package minesweepper;
+package minesweepper.logic;
 
 import java.util.Random;
+import minesweepper.ui.Tile;
+import minesweepper.ui.BoardScreen;
 
 public class BoardGenerator {
 
-    public BoardGenerator() {
-        
+    private BoardScreen boardScreen;
+    
+    public BoardGenerator(BoardScreen screen) {
+        this.boardScreen = screen;
     }
-
-    public int[][] generateBoard(int y, int x, int mines) {
-        int[][] board = new int[y + 2][x + 2];
-        int[][] returnBoard = new int[y][x];
+    
+    // This class shoud be refactored
+    public Tile[][] generateBoard(int heigth, int width, int mines) {
+        int[][] board = new int[heigth + 2][width + 2];
+        int[][] returnBoard = new int[heigth][width];
 
         int[][] mineBoard = this.generateMines(board, mines);
         int[][] counterBoard = this.countMarkers(mineBoard);
 
+        Tile[][] tiles = new Tile[heigth][width];
         // Here we combine the mine board and the minecounter board 
-        for (int i = 0; i < y; i++) {
-            for (int j = 0; j < x; j++) {
+        for (int i = 0; i < heigth; i++) {
+            for (int j = 0; j < width; j++) {
                 if (mineBoard[i + 1][j + 1] == -1) {
-                    returnBoard[i][j] = -1;
+                    tiles[i][j] = new Tile(-1, this.boardScreen);
                 } else {
-                    returnBoard[i][j] = counterBoard[i + 1][j + 1];
+                    tiles[i][j] = new Tile(counterBoard[i + 1][j + 1], this.boardScreen);
                 }
             }
         }
+        
+        
+        for (int y = 0; y < tiles.length; y++) {
+            for (int x = 0; x < tiles[0].length; x++) {
+                if (x - 1 >= 0 && y + 1 < tiles.length) {
+                    tiles[y][x].neibourghs.add(tiles[y + 1][x - 1]);
+                }
+                if (y + 1 < tiles.length) {
+                    tiles[y][x].neibourghs.add(tiles[y + 1][x]);
+                }
+                if (x + 1 < tiles[0].length && y + 1 < tiles.length) {
+                    tiles[y][x].neibourghs.add(tiles[y + 1][x + 1]);
+                }
 
-        return returnBoard;
+                if (x - 1 >= 0) {
+                    tiles[y][x].neibourghs.add(tiles[y][x - 1]);
+                }
+                if (x + 1 < tiles[0].length) {
+                    tiles[y][x].neibourghs.add(tiles[y][x + 1]);
+                }
+
+                if (x - 1 >= 0 && y - 1 >= 0) {
+                    tiles[y][x].neibourghs.add(tiles[y - 1][x - 1]);
+                }
+                if (y - 1 >= 0) {
+                    tiles[y][x].neibourghs.add(tiles[y - 1][x]);
+                }
+                if (x + 1 < tiles[0].length && y - 1 >= 0) {
+                    tiles[y][x].neibourghs.add(tiles[y - 1][x + 1]);
+                }
+            }
+        }
+        return tiles;
     }
 
     public int[][] generateMines(int[][] board, int amount) {

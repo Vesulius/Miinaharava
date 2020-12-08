@@ -1,19 +1,19 @@
-package ui;
+package minesweepper.ui;
 
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import minesweepper.logic.Graphix;
 
 
 public class TileTest {
     
     public Tile tile;
-    public GameBoard gameBoard;
+    public BoardScreen gameBoard;
     
     @Before
     public void setup() {
-        this.gameBoard = new GameBoard(10, 10, 10, new Graphix());
-        this.gameBoard.boardSceneCreator();
+        this.gameBoard = new BoardScreen(10, 10, 10, new Graphix());
         this.tile = new Tile(1, this.gameBoard);
     }
 

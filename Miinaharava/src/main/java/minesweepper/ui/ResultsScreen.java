@@ -1,4 +1,4 @@
-package ui;
+package minesweepper.ui;
 
 import javafx.scene.control.Button;
 import javafx.scene.Scene;
@@ -6,11 +6,13 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import minesweepper.logic.Graphix;
 
-public class ResultsBoard {
+
+public class ResultsScreen {
     private final Graphix graphix;
 
-    public ResultsBoard(Graphix graphix) {
+    public ResultsScreen(Graphix graphix) {
         this.graphix = graphix;
     }
     
@@ -24,7 +26,7 @@ public class ResultsBoard {
         
         Button button = new Button("NEW GAME");
         button.setOnAction(e -> {
-            this.graphix.newGame();
+            this.graphix.selectGame();
         });
         
         if (loss) {

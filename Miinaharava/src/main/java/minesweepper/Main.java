@@ -1,6 +1,6 @@
 package minesweepper;
 
-import ui.Graphix;
+import minesweepper.logic.Graphix;
 
 public class Main {
 
