@@ -24,9 +24,9 @@ public class SelectScreen {
         for (int y = 0; y < 20; y++) {
             for (int x = 0; x < 20; x++) {
                 Square square = new Square(y, x, this);
-                if (y < 5 && x < 5) {
-                    square.setFill(Color.BLACK);
-                }
+//                if (y < 5 || x < 5) {
+//                    square.setFill(Color.BLACK);
+//                }
                 squares[y][x] = square;
                 grid.add(square, y, x);
             }
@@ -42,6 +42,14 @@ public class SelectScreen {
     
     public void select(int y, int x) {
         this.graphix.newGame(y, x);
+    }
+    
+    public void hower(int y, int x, Color color) {
+        for (int i = 0; i < y + 1; i++) {
+            for (int j = 0; j < x + 1; j++) {
+                this.squares[j][i].setFill(color);
+            }
+        }
     }
     
     public Scene getScene() {
@@ -75,18 +83,20 @@ public class SelectScreen {
             
             this.setOnMouseClicked(e -> {
                 this.setFill(Color.BLUE);
-                this.selectScreen.select(this.y, this.x);
+                this.selectScreen.select(this.y + 1, this.x + 1);
             });
         }   
         
         private void select() {
-            if (!(this.y < 5 && this.x < 5)) {
+            this.selectScreen.hower(y, x, Color.LIGHTGREY);
+            if (!(this.y < 5 || this.x < 5)) {
                 this.setFill(Color.LIGHTGREY);
             }
         }
         
         private void deselect() {
-            if (!(this.y < 5 && this.x < 5)) {
+            this.selectScreen.hower(y, x, Color.GREY);
+            if (!(this.y < 5 || this.x < 5)) {
                 this.setFill(Color.GREY);
             }
         }

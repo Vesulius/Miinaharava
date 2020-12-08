@@ -13,13 +13,13 @@ public class BoardGenerator {
     }
     
     // This class shoud be refactored
-    public Tile[][] generateBoard(int heigth, int width, int mines) {
+    public Tile[][] generateBoard(int width, int heigth, int mines) {
         int[][] board = new int[heigth + 2][width + 2];
         int[][] returnBoard = new int[heigth][width];
 
         int[][] mineBoard = this.generateMines(board, mines);
         int[][] counterBoard = this.countMarkers(mineBoard);
-
+        
         Tile[][] tiles = new Tile[heigth][width];
         // Here we combine the mine board and the minecounter board 
         for (int i = 0; i < heigth; i++) {
@@ -31,7 +31,6 @@ public class BoardGenerator {
                 }
             }
         }
-        
         
         for (int y = 0; y < tiles.length; y++) {
             for (int x = 0; x < tiles[0].length; x++) {

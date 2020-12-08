@@ -1,5 +1,7 @@
 package minesweepper.logic;
 
+import minesweepper.ui.BoardScreen;
+import minesweepper.ui.Tile;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -11,7 +13,7 @@ public class BoardGeneratorTest {
     
     @Before
     public void setup() {
-        this.boardGenerator = new BoardGenerator();
+        this.boardGenerator = new BoardGenerator(new BoardScreen(10, 10, 10, new Graphix()));
     }
     
     @Test
@@ -34,5 +36,10 @@ public class BoardGeneratorTest {
             }
         }
         assertEquals(10, minesCount);
+    }
+    
+    @Test
+    public void returnsTiles() {
+        assertTrue(this.boardGenerator.generateBoard(1, 1, 1)[0][0] instanceof Tile);
     }
 }

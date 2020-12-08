@@ -16,20 +16,21 @@ public class BoardScreen {
     private int minesCount;
     private BoardGenerator boardGenerator;
     
-    public BoardScreen(int heigth, int weidth, int mines, Graphix graphix) {
-        this.tiles = new Tile[heigth][weidth];
-        this.victoryCount = weidth * heigth - mines;
+    public BoardScreen(int heigth, int width, int mines, Graphix graphix) {
+        this.tiles = new Tile[heigth][width];
+        this.victoryCount = width * heigth - mines;
         this.minesCount = mines;
         this.graphix = graphix;
         this.boardGenerator = new BoardGenerator(this);
         
         GridPane grid = new GridPane();
                 
-        Tile[][] tiles = this.boardGenerator.generateBoard(heigth, weidth, this.minesCount);
+        this.tiles = this.boardGenerator.generateBoard(heigth, width, this.minesCount);
         
-        for (int y = 0; y < tiles.length; y++) {
-            for (int x = 0; x < tiles[0].length; x++) {
-                grid.add(tiles[y][x], y, x);
+        
+        for (int y = 0; y < this.tiles.length; y++) {
+            for (int x = 0; x < this.tiles[0].length; x++) {
+                grid.add(this.tiles[y][x], y, x);
             }
         }
 
