@@ -1,7 +1,7 @@
 package minesweepper.ui;
 
 import javafx.scene.Scene;
-import minesweepper.logic.Graphix;
+import minesweepper.logic.App;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -12,8 +12,8 @@ public class SelectScreenTest {
     public SelectScreen selectScreen;
     
     @Before
-    public void setup() {
-        this.selectScreen = new SelectScreen(new Graphix());
+    public void setup() throws ClassNotFoundException {
+        this.selectScreen = new SelectScreen(new App());
     }
     
     @Test

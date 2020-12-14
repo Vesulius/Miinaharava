@@ -1,24 +1,32 @@
 package minesweepper.ui;
 
+import java.util.Arrays;
+import java.util.List;
 import javafx.scene.control.Button;
 import javafx.scene.Scene;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import minesweepper.logic.Graphix;
 
+import minesweepper.logic.App;
 
 public class ResultsScreen {
-    private final Graphix graphix;
+    private App app;
+    private Scene scene;
 
-    public ResultsScreen(Graphix graphix) {
-        this.graphix = graphix;
-    }
-    
-    public Scene resultSceneCreator(boolean loss) {
+    public ResultsScreen(App app, boolean loss, List<String[]> runs) {
+        this.app = app;
+        
         BorderPane pane = new BorderPane();
         pane.setPrefSize(500, 500);
+        
+        ListView<String> listView = new ListView();
+        
+        runs.forEach((run) -> {
+            listView.getItems().add(Arrays.toString(run));
+        });
         
         Text text = new Text();
         text.setFill(Color.BLACK);
@@ -26,7 +34,7 @@ public class ResultsScreen {
         
         Button button = new Button("NEW GAME");
         button.setOnAction(e -> {
-            this.graphix.selectGame();
+            this.app.selectGame();
         });
         
         if (loss) {
@@ -36,8 +44,13 @@ public class ResultsScreen {
         }
         
         pane.setCenter(text);
+        pane.setCenter(listView);
         pane.setBottom(button);
         
-        return new Scene(pane);
+        this.scene = new Scene(pane);
+    }
+   
+    public Scene getScene() {
+        return scene;
     }
 }

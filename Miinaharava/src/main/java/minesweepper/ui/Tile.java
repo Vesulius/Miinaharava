@@ -6,6 +6,8 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.scene.input.MouseButton;
 
 public class Tile extends StackPane {
@@ -41,14 +43,18 @@ public class Tile extends StackPane {
                 mark();
             } else {
                 if (!this.text.getText().equals("F")) {
-                    reveal();
+                    try {
+                        reveal();
+                    } catch (ClassNotFoundException ex) {
+                        Logger.getLogger(Tile.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
             }
         });
     }
     
 
-    public void reveal() {
+    public void reveal() throws ClassNotFoundException {
         if (this.text.getText().equals("F")) {
             this.setText();
         } else if (this.text.isVisible()) {
@@ -63,7 +69,13 @@ public class Tile extends StackPane {
         } else if (this.mines == 0) {
             this.text.setFill(Color.LIGHTGREY);
             this.rectangle.setFill(Color.LIGHTGREY);
-            this.neibourghs.forEach(Tile -> Tile.reveal());
+            this.neibourghs.forEach(Tile -> {
+                try {
+                    Tile.reveal();
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(Tile.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            });
         }
     }
     

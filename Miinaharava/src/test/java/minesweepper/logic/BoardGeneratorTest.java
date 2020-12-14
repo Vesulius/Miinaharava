@@ -12,8 +12,8 @@ public class BoardGeneratorTest {
     BoardGenerator boardGenerator;
     
     @Before
-    public void setup() {
-        this.boardGenerator = new BoardGenerator(new BoardScreen(10, 10, 10, new Graphix()));
+    public void setup() throws ClassNotFoundException {
+        this.boardGenerator = new BoardGenerator(new BoardScreen(10, 10, 10, new App()));
     }
     
     @Test

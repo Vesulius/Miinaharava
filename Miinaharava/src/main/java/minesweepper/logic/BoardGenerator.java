@@ -106,7 +106,7 @@ public class BoardGenerator {
         return returnBoard;
     }
 
-    // This method is just for testing and wont be used in the functioning program
+    // This method is just for testing and won't be used in the functioning program
     public void print(int[][] board) {
         for (int y = 0; y < board.length; y++) {
             for (int x = 0; x < board[0].length; x++) {

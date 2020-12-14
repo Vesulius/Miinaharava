@@ -5,7 +5,7 @@ import javafx.scene.Scene;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import minesweepper.logic.Graphix;
+import minesweepper.logic.App;
 
 public class GameBoardTest {
     
@@ -13,8 +13,8 @@ public class GameBoardTest {
     public Scene scene;
     
     @Before
-    public void setup() {
-        this.board = new BoardScreen(10, 10, 10, new Graphix());
+    public void setup() throws ClassNotFoundException {
+        this.board = new BoardScreen(10, 10, 10, new App());
     }
     
     @Test
@@ -33,7 +33,7 @@ public class GameBoardTest {
     }
     
     @Test
-    public void tilesAreRevealed() {
+    public void tilesAreRevealed() throws ClassNotFoundException {
         this.board.tiles[1][1].reveal();
         assertTrue(this.board.tiles[1][1].text.isVisible());
     }

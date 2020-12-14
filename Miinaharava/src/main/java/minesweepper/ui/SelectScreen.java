@@ -1,47 +1,52 @@
 package minesweepper.ui;
 
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import minesweepper.logic.Graphix;
+import minesweepper.logic.App;
 
 
 public class SelectScreen {
-    private final Graphix graphix;
+    private final App app;
     private Scene scene;
     private Square[][] squares = new Square[20][20];
     private GridPane grid;
-
-    public SelectScreen(Graphix graphix) {
-        this.graphix = graphix;
+    private TextField username;
+    public SelectScreen(App app) {
+        this.app = app;
         
         this.grid = new GridPane();
         this.grid.setPrefSize(500, 500);
         
+        this.username = new TextField();
+        Text text = new Text("  Write username:");
+        text.setFont(Font.font(22));
+        
         for (int y = 0; y < 20; y++) {
             for (int x = 0; x < 20; x++) {
                 Square square = new Square(y, x, this);
-//                if (y < 5 || x < 5) {
-//                    square.setFill(Color.BLACK);
-//                }
                 squares[y][x] = square;
                 grid.add(square, y, x);
             }
         }
+        HBox hbox = new HBox();
+        hbox.setSpacing(150);
+        hbox.getChildren().addAll(text, username);
         
-        Text text = new Text("WELCOME TO MINESWEEPPER");
-        text.setFill(Color.BLACK);
-        text.setFont(Font.font(30));
+        VBox vbox = new VBox();
+        vbox.getChildren().addAll(hbox, this.grid);
         
-        
-        this.scene = new Scene(this.grid); 
+        this.scene = new Scene(vbox); 
     }
     
     public void select(int y, int x) {
-        this.graphix.newGame(y, x);
+        this.app.newGame(y, x, this.username.getText());
     }
     
     public void hower(int y, int x, Color color) {
@@ -60,9 +65,6 @@ public class SelectScreen {
         private int y;
         private int x;
         private SelectScreen selectScreen;
-        
-        //this list includes the squares up and left of this square
-        private Graphix graphix;
         
         public Square(int x, int y, SelectScreen selectScreen) {
             this.y = y;
@@ -89,16 +91,10 @@ public class SelectScreen {
         
         private void select() {
             this.selectScreen.hower(y, x, Color.LIGHTGREY);
-            if (!(this.y < 5 || this.x < 5)) {
-                this.setFill(Color.LIGHTGREY);
-            }
         }
         
         private void deselect() {
             this.selectScreen.hower(y, x, Color.GREY);
-            if (!(this.y < 5 || this.x < 5)) {
-                this.setFill(Color.GREY);
-            }
         }
     }
 }

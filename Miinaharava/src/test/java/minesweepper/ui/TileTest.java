@@ -3,7 +3,7 @@ package minesweepper.ui;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import minesweepper.logic.Graphix;
+import minesweepper.logic.App;
 
 
 public class TileTest {
@@ -12,8 +12,8 @@ public class TileTest {
     public BoardScreen gameBoard;
     
     @Before
-    public void setup() {
-        this.gameBoard = new BoardScreen(10, 10, 10, new Graphix());
+    public void setup() throws ClassNotFoundException {
+        this.gameBoard = new BoardScreen(10, 10, 10, new App());
         this.tile = new Tile(1, this.gameBoard);
     }
 

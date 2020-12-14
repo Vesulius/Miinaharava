@@ -4,24 +4,25 @@ package minesweepper.ui;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import minesweepper.logic.BoardGenerator;
-import minesweepper.logic.Graphix;
+import minesweepper.logic.App;
 
         
 public class BoardScreen {
     
     public Tile[][] tiles;
     private Scene scene;
-    private Graphix graphix;
+    private App app;
     private int victoryCount;
     private int minesCount;
     private BoardGenerator boardGenerator;
     
-    public BoardScreen(int heigth, int width, int mines, Graphix graphix) {
+    public BoardScreen(int heigth, int width, int mines, App app) {
         this.tiles = new Tile[heigth][width];
         this.victoryCount = width * heigth - mines;
         this.minesCount = mines;
-        this.graphix = graphix;
+        this.app = app;
         this.boardGenerator = new BoardGenerator(this);
+        
         
         GridPane grid = new GridPane();
                 
@@ -33,19 +34,19 @@ public class BoardScreen {
                 grid.add(this.tiles[y][x], y, x);
             }
         }
-
+        
         this.scene = new Scene(grid);
     }
     
-    public void checkVictory(boolean loss) {
+    public void checkVictory(boolean loss) throws ClassNotFoundException {
         if (loss) {
-            this.graphix.endGame(loss);
+            this.app.endGame(true);
         }
         
         this.victoryCount--;
         if (this.victoryCount < 1) {
             System.out.println("WIN!");
-            this.graphix.endGame(false);
+            this.app.endGame(false);
         } 
     }
     
