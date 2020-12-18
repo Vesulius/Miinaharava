@@ -1,53 +1,61 @@
 package minesweepper.ui;
 
-import java.util.Arrays;
 import java.util.List;
 import javafx.scene.control.Button;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
-import minesweepper.logic.App;
-
 public class ResultsScreen {
-    private App app;
+    private AppUi app;
     private Scene scene;
 
-    public ResultsScreen(App app, boolean loss, List<String[]> runs) {
+    public ResultsScreen(AppUi app, boolean loss, List<String[]> runs) {
         this.app = app;
         
-        BorderPane pane = new BorderPane();
-        pane.setPrefSize(500, 500);
+        ListView<Text> listView = new ListView();
+        Text runValues = new Text("Username:     Score:       Time:");
+        listView.getItems().add(runValues);
         
-        ListView<String> listView = new ListView();
+        Color fade = Color.RED;
         
-        runs.forEach((run) -> {
-            listView.getItems().add(Arrays.toString(run));
-        });
+        int placement = 1;
+        for (String[] run: runs) {
+            Text text = new Text(placement + "  " + run[0] + "  " + run[1] + "  " + run[2]);
+            text.setVisible(true);
+            text.setFill(fade);
+            fade = fade.darker();
+            listView.getItems().add(text);
+            placement++;
+        }
         
-        Text text = new Text();
-        text.setFill(Color.BLACK);
-        text.setFont(Font.font(30));
+        Text victoryText = new Text();
+        victoryText.setFill(Color.BLACK);
+        victoryText.setFont(Font.font(23));
+        if (loss) {
+            victoryText.setText("GAME OVER!");
+        } else {
+            victoryText.setText("VICTORY!");
+        }
         
         Button button = new Button("NEW GAME");
+        button.autosize();
         button.setOnAction(e -> {
             this.app.selectGame();
         });
         
-        if (loss) {
-            text.setText("GAME OVER!");
-        } else {
-            text.setText("VICTORY!");
-        }
+        HBox hbox = new HBox();
+        hbox.setSpacing(50);
+        hbox.getChildren().addAll(new Text(""), victoryText, button);
         
-        pane.setCenter(text);
-        pane.setCenter(listView);
-        pane.setBottom(button);
+        VBox vbox = new VBox();
+        vbox.getChildren().addAll(hbox, listView);
         
-        this.scene = new Scene(pane);
+        this.scene = new Scene(vbox, Color.BLACK);
     }
    
     public Scene getScene() {

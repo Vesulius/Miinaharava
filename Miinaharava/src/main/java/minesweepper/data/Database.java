@@ -17,7 +17,7 @@ public class Database {
         try {
             Files.delete(path);
         } catch (IOException x) {
-            System.out.println(x.getMessage());
+            System.out.println("Can not interact with filesystem. Error: " + x.getMessage());
         }
         try {
             Statement statement = getConnection().createStatement(); 

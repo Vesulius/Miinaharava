@@ -1,19 +1,24 @@
 package minesweepper.data;
 
-import java.sql.*;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RunRegister {
+public class RunRegister implements RunDAO {
     private Database database;
 
-    public RunRegister(Database database) {
+    public RunRegister(Database database) throws ClassNotFoundException {
         this.database = database;
     }
     
+    @Override
     public void addRun(String username, int score, double time) throws ClassNotFoundException {
         if (username.isBlank()) {
             username = "The Nameless One";
+        } else if (username.length() > 14) {
+            username = "ToooooLooooong";
         }
         try {
             Statement statement = this.database.getConnection().createStatement();
@@ -22,8 +27,11 @@ public class RunRegister {
         } catch (SQLException e) {
             System.out.println("Can not insert new run. Error: " + e.getMessage());
         }
+        
+        
     }
     
+    @Override
     public List getRuns() throws ClassNotFoundException {
         ArrayList<String[]> list = new ArrayList<String[]>();
         try {
@@ -31,10 +39,10 @@ public class RunRegister {
             ResultSet results = statement.executeQuery("SELECT id, username, score, time FROM Runs ORDER BY score DESC");
             
             while (results.next()) {
-                String username = results.getString("username");
-                int score = results.getInt("score");
-                double time = results.getDouble("time");
-                String[] row = {username, String.valueOf(score), String.valueOf(time)};
+                String[] row = {
+                    results.getString("username"),
+                    String.valueOf(results.getInt("score")),
+                    String.valueOf(results.getDouble("time"))};
                 list.add(row);
             }
         } catch (SQLException e) {

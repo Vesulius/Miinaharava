@@ -1,12 +1,10 @@
 package minesweepper;
 
-import minesweepper.logic.App;
+import minesweepper.ui.AppUi;
 
 public class Main {
 
     public static void main(String[] args) {
-
-        App.main(args);
-
+        AppUi.main(args);
     }
 }

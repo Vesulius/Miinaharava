@@ -37,7 +37,7 @@ public class Tile extends StackPane {
         
     // If revealed tiles mines == 0, then all the adjacent tiles will be revealed. This prosess is recursive.
     // If the tiles text == F, that means the tile has been marked and won't be revealed by clicking it. 
-    // It will be revealed by the recursive prosess explaned above
+    // It will be revealed however by the recursive prosess explaned above
         this.setOnMouseClicked(e -> {
             if (e.getButton() == MouseButton.SECONDARY) {
                 mark();

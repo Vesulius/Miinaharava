@@ -5,7 +5,7 @@ import minesweepper.ui.Tile;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-
+import minesweepper.ui.AppUi;
 
 public class BoardGeneratorTest {
     
@@ -13,7 +13,7 @@ public class BoardGeneratorTest {
     
     @Before
     public void setup() throws ClassNotFoundException {
-        this.boardGenerator = new BoardGenerator(new BoardScreen(10, 10, 10, new App()));
+        this.boardGenerator = new BoardGenerator(new BoardScreen(10, 10, 10, new AppUi()));
     }
     
     @Test

@@ -9,22 +9,20 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import minesweepper.logic.App;
-
 
 public class SelectScreen {
-    private final App app;
+    private AppUi app;
     private Scene scene;
     private Square[][] squares = new Square[20][20];
     private GridPane grid;
-    private TextField username;
-    public SelectScreen(App app) {
+    public TextField username;
+    
+    public SelectScreen(AppUi app) {
         this.app = app;
-        
         this.grid = new GridPane();
         this.grid.setPrefSize(500, 500);
-        
         this.username = new TextField();
+
         Text text = new Text("  Write username:");
         text.setFont(Font.font(22));
         
@@ -45,11 +43,11 @@ public class SelectScreen {
         this.scene = new Scene(vbox); 
     }
     
-    public void select(int y, int x) {
+    private void select(int y, int x) {
         this.app.newGame(y, x, this.username.getText());
     }
     
-    public void hower(int y, int x, Color color) {
+    private void hower(int y, int x, Color color) {
         for (int i = 0; i < y + 1; i++) {
             for (int j = 0; j < x + 1; j++) {
                 this.squares[j][i].setFill(color);
