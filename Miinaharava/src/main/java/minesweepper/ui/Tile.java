@@ -13,20 +13,18 @@ import javafx.scene.input.MouseButton;
 public class Tile extends StackPane {
 
     // mines = number of surrounding mines. -1 = mine 
-    public int mines;
-    public int x;
-    public int y;
-    public ArrayList<Tile> neibourghs = new ArrayList<Tile>();
+    private int mines;
+    private ArrayList<Tile> neibourghs = new ArrayList<Tile>();
 
-    public BoardScreen board;
-    public Rectangle rectangle = new Rectangle(50, 50);
-    public Text text = new Text();
+    private AppUi ui;
+    private Rectangle rectangle = new Rectangle(50, 50);
+    private Text text;
 
-    public Tile(int mines, BoardScreen board) {
+    public Tile(int mines, AppUi ui) {
         this.mines = mines;
-        this.board = board;
+        this.ui = ui;
 
-        this.setText();
+        this.text = new Text();
         this.text.setVisible(false);
         this.text.setFont(Font.font(22));
 
@@ -48,26 +46,25 @@ public class Tile extends StackPane {
                     } catch (ClassNotFoundException ex) {
                         Logger.getLogger(Tile.class.getName()).log(Level.SEVERE, null, ex);
                     }
+
                 }
             }
         });
     }
     
-
     public void reveal() throws ClassNotFoundException {
-        if (this.text.getText().equals("F")) {
-            this.setText();
-        } else if (this.text.isVisible()) {
+        if (this.text.isVisible() && !this.text.getText().equals("F")) {
             return;
         }
-        text.setVisible(true);
-        this.board.checkVictory(false);
+        this.setTextToMine();
+        this.text.setVisible(true);
+        this.ui.checkVictory();
         
         if (this.mines == -1) {
             System.out.println("GAME OVER!");
-            this.board.checkVictory(true);
+            this.ui.endGame(false);
         } else if (this.mines == 0) {
-            this.text.setFill(Color.LIGHTGREY);
+            this.text.setText("");
             this.rectangle.setFill(Color.LIGHTGREY);
             this.neibourghs.forEach(Tile -> {
                 try {
@@ -82,7 +79,7 @@ public class Tile extends StackPane {
     public void mark() {
         if (this.text.getText().equals("F")) {
             this.text.setVisible(false);
-            this.setText();
+            this.setTextToMine();
         } else if (this.text.isVisible()) {
             return;
         } else {
@@ -91,8 +88,12 @@ public class Tile extends StackPane {
             this.text.setVisible(true);
         }
     }
+
+    public int getMines() {
+        return mines;
+    }
     
-    private void setText() {
+    public void setTextToMine() {
         if (mines == -1) {
             this.text.setText("M");
             this.text.setFill(Color.RED);
@@ -101,4 +102,17 @@ public class Tile extends StackPane {
             this.text.setFill(Color.WHITE);
         }
     }
+    
+    public void isMine() {
+        this.mines = -1;
+        this.neibourghs.forEach((mine) -> {
+            if (mine.getMines() != -1) {
+                mine.mines++;
+            }
+        });
+    }
+    
+    public void addNeighbour(Tile tile) {
+        this.neibourghs.add(tile);
+    } 
 }

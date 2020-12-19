@@ -1,6 +1,5 @@
 package minesweepper.logic;
 
-import minesweepper.ui.BoardScreen;
 import minesweepper.ui.Tile;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,7 +12,7 @@ public class BoardGeneratorTest {
     
     @Before
     public void setup() throws ClassNotFoundException {
-        this.boardGenerator = new BoardGenerator(new BoardScreen(10, 10, 10, new AppUi()));
+        this.boardGenerator = new BoardGenerator(new AppUi());
     }
     
     @Test
@@ -28,11 +27,14 @@ public class BoardGeneratorTest {
     
     @Test
     public void rightAmountOfMines() {
-        int[][] test = this.boardGenerator.generateMines(new int[10][10], 10);
+        this.boardGenerator.generateBoard(10, 10, 10);
+        Tile[][] test = this.boardGenerator.getTiles();
         int minesCount = 0;
         for (int y = 0; y < 10; y++) {
             for (int x = 0; x < 10; x++) {
-                if (test[y][x] == -1) minesCount++;
+                if (test[y][x].getMines() == -1) {
+                    minesCount++;
+                }
             }
         }
         assertEquals(10, minesCount);
@@ -40,6 +42,7 @@ public class BoardGeneratorTest {
     
     @Test
     public void returnsTiles() {
-        assertTrue(this.boardGenerator.generateBoard(1, 1, 1)[0][0] instanceof Tile);
+        this.boardGenerator.generateBoard(1, 1, 1);
+        assertTrue(this.boardGenerator.getTiles()[0][0] instanceof Tile);
     }
 }

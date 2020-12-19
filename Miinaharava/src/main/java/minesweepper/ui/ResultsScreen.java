@@ -14,14 +14,14 @@ public class ResultsScreen {
     private AppUi app;
     private Scene scene;
 
-    public ResultsScreen(AppUi app, boolean loss, List<String[]> runs) {
+    public ResultsScreen(AppUi app, boolean win, List<String[]> runs) {
         this.app = app;
         
         ListView<Text> listView = new ListView();
         Text runValues = new Text("Username:     Score:       Time:");
         listView.getItems().add(runValues);
         
-        Color fade = Color.RED;
+        Color fade = Color.LIGHTGREEN.deriveColor(100, 100, 100, 100);
         
         int placement = 1;
         for (String[] run: runs) {
@@ -36,10 +36,10 @@ public class ResultsScreen {
         Text victoryText = new Text();
         victoryText.setFill(Color.BLACK);
         victoryText.setFont(Font.font(23));
-        if (loss) {
-            victoryText.setText("GAME OVER!");
-        } else {
+        if (win) {
             victoryText.setText("VICTORY!");
+        } else {
+            victoryText.setText("GAME OVER!");
         }
         
         Button button = new Button("NEW GAME");

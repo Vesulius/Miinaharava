@@ -19,7 +19,7 @@ public class DatabaseTest {
     }
 
     @Test
-    public void databaseCreated() {
+    public void createdDatabase() {
         assertTrue(this.database != null);
     }
 

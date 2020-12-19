@@ -1,7 +1,5 @@
 package minesweepper.logic;
 
-import java.util.Arrays;
-import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -29,7 +27,6 @@ public class AppServiceTest {
     public void canRegisterGame() throws ClassNotFoundException {
         this.service.newGame(1, 1, "1234");
         this.service.endGame(100);
-        boolean registered = false;
         assertEquals("1234", this.service.getRuns().get(0)[0]);
     }
     

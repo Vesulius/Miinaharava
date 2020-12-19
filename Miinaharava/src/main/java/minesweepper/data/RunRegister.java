@@ -27,10 +27,8 @@ public class RunRegister implements RunDAO {
         } catch (SQLException e) {
             System.out.println("Can not insert new run. Error: " + e.getMessage());
         }
-        
-        
     }
-    
+      
     @Override
     public List getRuns() throws ClassNotFoundException {
         ArrayList<String[]> list = new ArrayList<String[]>();
@@ -46,7 +44,7 @@ public class RunRegister implements RunDAO {
                 list.add(row);
             }
         } catch (SQLException e) {
-            System.out.println("Can not insert new run. Error: " + e.getMessage());
+            System.out.println("Can not get runs. Error: " + e.getMessage());
         }
         
         return list;

@@ -70,7 +70,7 @@ public class SelectScreen {
             this.selectScreen = selectScreen;
             this.setHeight(25);
             this.setWidth(25);
-            this.setFill(Color.GRAY);
+            this.setFill(Color.DIMGRAY);
             this.setStroke(Color.WHITE);
             
             this.setOnMouseEntered(e -> {
@@ -82,7 +82,6 @@ public class SelectScreen {
             });
             
             this.setOnMouseClicked(e -> {
-                this.setFill(Color.BLUE);
                 this.selectScreen.select(this.y + 1, this.x + 1);
             });
         }   
@@ -92,7 +91,7 @@ public class SelectScreen {
         }
         
         private void deselect() {
-            this.selectScreen.hower(y, x, Color.GREY);
+            this.selectScreen.hower(y, x, Color.DIMGREY);
         }
     }
 }
