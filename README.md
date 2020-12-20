@@ -6,14 +6,14 @@ Tämä on *Helsingin yliopiston* kurssin *ohjelmistotekniikka (_TKT20002_)* harj
 
 #### Releaset
 
-[Viimeinen palautus](https://github.com/Vesulius/ot-harjoitustyo/releases)
+[Viimeinen palautus](https://github.com/Vesulius/ot-harjoitustyo/releases/tag/v3)
 
 #### Dokumentaatio
-[vaatimusmäärittely](https://github.com/Vesulius/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
+[Vaatimusmäärittely](https://github.com/Vesulius/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
 [Tuntikirjanpito](https://github.com/Vesulius/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
 
-[arkkitehtuuri](https://github.com/Vesulius/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
+[Arkkitehtuuri](https://github.com/Vesulius/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
 [Käyttöohje](https://github.com/Vesulius/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
 
