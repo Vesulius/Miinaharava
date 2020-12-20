@@ -59,9 +59,7 @@ public class Tile extends StackPane {
         this.setTextToMine();
         this.text.setVisible(true);
         this.ui.checkVictory();
-        
         if (this.mines == -1) {
-            System.out.println("GAME OVER!");
             this.ui.endGame(false);
         } else if (this.mines == 0) {
             this.text.setText("");

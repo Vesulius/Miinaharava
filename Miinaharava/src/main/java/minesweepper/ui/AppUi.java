@@ -65,7 +65,6 @@ public class AppUi extends Application {
     
     public void checkVictory() throws ClassNotFoundException {
         if (this.service.checkVictoryCounter()) {
-            System.out.println("VICTORY");
             this.service.endGame(this.timer.getTime());
             this.endGame(true);
         }

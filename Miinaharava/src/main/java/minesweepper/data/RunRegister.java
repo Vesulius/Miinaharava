@@ -49,11 +49,4 @@ public class RunRegister implements RunDAO {
         
         return list;
     }
-    
-    // This method is just for testing and won't be used in the functioning program
-    public void testRuns() throws ClassNotFoundException {
-        this.addRun("ChickenDinner", 1000, 999.99);
-        this.addRun("Silver", 999, 999.98);
-        this.addRun("Lastboy", 0, 0);
-    }
 }

@@ -42,23 +42,6 @@ public class BoardGenerator {
                 tiles[y][x].setTextToMine();
             }
         }
-//        Tile t1 = new Tile(-1, this.ui);
-//        Tile t2 = new Tile(1, this.ui);
-//        Tile t3 = new Tile(0, this.ui);
-//        
-//        t1.setTextToMine();
-//        t2.setTextToMine();
-//        t3.setTextToMine();
-//        
-//        t1.addNeighbour(t2);
-//        t2.addNeighbour(t1);
-//        t2.addNeighbour(t3);
-//        t3.addNeighbour(t2);
-//        
-//        grid.add(t1, 0, 0);
-//        grid.add(t2, 1, 0);
-//        grid.add(t3, 2, 0);
-        
         return grid;
     }
 

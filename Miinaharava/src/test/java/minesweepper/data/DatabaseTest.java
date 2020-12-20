@@ -32,7 +32,7 @@ public class DatabaseTest {
     public void canCreateTable() throws ClassNotFoundException, SQLException {
         this.database.initialize();
         DatabaseMetaData dbData = this.database.getConnection().getMetaData();
-        ResultSet resultset = dbData.getTables(null, null, "runs", null);
+        ResultSet resultset = dbData.getTables(null, null, "Runs", null);
         assertTrue(resultset.next());
     }
 }
