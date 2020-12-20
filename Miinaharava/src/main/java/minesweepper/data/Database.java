@@ -12,16 +12,19 @@ public class Database {
 
     }
     
-    public void initialize() throws ClassNotFoundException {
-        Path path = FileSystems.getDefault().getPath("app.db");
+    public void deletePath() {
+                Path path = FileSystems.getDefault().getPath("app.db");
         try {
             Files.delete(path);
         } catch (IOException x) {
             System.out.println("Can not interact with filesystem. Error: " + x.getMessage());
         }
+    }
+    
+    public void initialize() throws ClassNotFoundException {
         try {
             Statement statement = getConnection().createStatement(); 
-            statement.execute("CREATE TABLE Runs (id INTEGER PRIMARY KEY, username TEXT NOT NULL, score INTEGER, time DECIMAL (5, 2))");
+            statement.execute("CREATE TABLE IF NOT EXISTS Runs (id INTEGER PRIMARY KEY, username TEXT NOT NULL, score INTEGER, time DECIMAL (5, 2))");
         } catch (Exception e) {
             System.out.println("Can not create table. Error: " + e.getMessage());
         }

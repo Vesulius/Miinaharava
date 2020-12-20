@@ -1,5 +1,6 @@
 package minesweepper.logic;
 
+import minesweepper.data.Database;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -10,7 +11,9 @@ public class AppServiceTest {
     
     @Before
     public void setup() throws ClassNotFoundException {
-        this.service = new AppService();
+        this.service = new AppService(true);
+        Database db = new Database();
+        db.initialize();
     }
     
     @Test

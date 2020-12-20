@@ -13,8 +13,11 @@ public class AppService {
     private int victoryCount;
     
      
-    public AppService() throws ClassNotFoundException {
+    public AppService(boolean testmode) throws ClassNotFoundException {
         this.database = new Database();
+        if (testmode) {
+             this.database.deletePath();
+        }
         this.database.initialize();
         this.register = new RunRegister(this.database);
     }
@@ -53,5 +56,5 @@ public class AppService {
     public boolean checkVictoryCounter() {
         this.victoryCount--;
         return this.victoryCount == 0;
-    }
+    }    
 }

@@ -13,6 +13,7 @@ public class RunRegisterTest {
     @Before
     public void setup() throws ClassNotFoundException {
         Database db = new Database();
+        db.deletePath();
         db.initialize();
         this.register = new RunRegister(db);
     }

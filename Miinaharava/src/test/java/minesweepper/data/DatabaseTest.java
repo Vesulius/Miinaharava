@@ -16,6 +16,7 @@ public class DatabaseTest {
     @Before
     public void setup() {
         this.database = new Database();
+        this.database.deletePath();
     }
 
     @Test

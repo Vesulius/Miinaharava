@@ -25,7 +25,7 @@ public class AppUi extends Application {
     private BoardGenerator generator;
     
     public AppUi() throws ClassNotFoundException {
-        this.service = new AppService();
+        this.service = new AppService(false);
         this.generator = new BoardGenerator(this);
     }
 
