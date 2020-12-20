@@ -4,6 +4,9 @@ Tämä sovellus on klassinen miinaharava peli.
 
 Tämä on *Helsingin yliopiston* kurssin *ohjelmistotekniikka (_TKT20002_)* harjoitustyö.
 
+#### Releaset
+
+[Viimeinen palautus](https://github.com/Vesulius/ot-harjoitustyo/releases)
 
 #### Dokumentaatio
 [vaatimusmäärittely](https://github.com/Vesulius/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
@@ -13,6 +16,8 @@ Tämä on *Helsingin yliopiston* kurssin *ohjelmistotekniikka (_TKT20002_)* harj
 [arkkitehtuuri](https://github.com/Vesulius/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
 [Käyttöohje](https://github.com/Vesulius/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
+
+[Testausdokumentti](https://github.com/Vesulius/ot-harjoitustyo/blob/master/dokumentaatio/testaus.md)
 
 #### Komentorivikomennot
 Testit suoritetaan komennolla
@@ -31,4 +36,10 @@ java checkstyle raportti luodaan komennolla
 
 ```
 mvn jxr:jxr checkstyle:checkstyle
+``` 
+
+Suoritettavan jar-tiedoston tuottaminen
+
+```
+mvn package
 ``` 

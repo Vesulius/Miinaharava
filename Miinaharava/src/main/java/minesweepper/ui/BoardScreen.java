@@ -13,7 +13,7 @@ public class BoardScreen {
     private Scene scene;
     private static Text timertext;
     
-    public BoardScreen(int heigth, int width, int mines, Text text, GridPane grid) {
+    public BoardScreen(Text text, GridPane grid) {
         
         BoardScreen.timertext = text;
         

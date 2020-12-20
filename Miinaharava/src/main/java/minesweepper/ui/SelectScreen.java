@@ -1,4 +1,4 @@
-package minesweepper.ui;
+ package minesweepper.ui;
 
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;

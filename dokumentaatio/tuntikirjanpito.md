@@ -14,5 +14,12 @@
 | 5.12. | 3    | Aloitettu pelin valintaruutu |
 | 7.12. | 4    | Jatkettu pelin valintaruutua |
 | 8.12. | 2    | Päivitetty testejä ja dokumentaatiota |
+| 10.12. | 4    | Paljon refactorointia |
+| 14.12. | 3    | Tietokanta aloitettu |
+| 15.12. | 4    | Tietokantaa jatketaan ja luodaan tulosnäkymä luokka |
+| 17.12. | 4    | Luodaan Timer luokka |
+| 18.12. | 4    | Muokataan timer luokkaa ja rafactorointia ja testausta päivitetään |
+| 19.12. | 3    | Tietokantaan lisätään ominaisuuksia |
+| 20.12. | 6    | Dokumentaatiota ja viimehetken epätoivoa |
 
-Yhteensä 38 tuntia
+Yhteensä 66 tuntia
