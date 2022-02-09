@@ -1,10 +1,13 @@
-## Miinaharava
+# Miinaharava
 
-Tämä sovellus on klassinen miinaharava peli.
+Klassinen miinaharava peli. Tämä projekti on *Helsingin yliopiston* kurssin *ohjelmistotekniikka (_TKT20002_)* harjoitustyö.
 
-Tämä on *Helsingin yliopiston* kurssin *ohjelmistotekniikka (_TKT20002_)* harjoitustyö.
+## Demovideo
 
-#### Releaset
+![demo gif](https://github.com/Vesulius/Miinaharava/blob/master/dokumentaatio/kuvat/minesweepper.gif)
+
+
+## Releaset
 
 [Viimeinen palautus](https://github.com/Vesulius/ot-harjoitustyo/releases/tag/v3)
 
@@ -19,7 +22,8 @@ Tämä on *Helsingin yliopiston* kurssin *ohjelmistotekniikka (_TKT20002_)* harj
 
 [Testausdokumentti](https://github.com/Vesulius/ot-harjoitustyo/blob/master/dokumentaatio/testaus.md)
 
-#### Komentorivikomennot
+
+## Komentorivikomennot
 Testit suoritetaan komennolla
 
 ```
